@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* Variables */
+:root {
+    --dark-bg: #09090b;
+    --lighter-bg: #111111;
+    --border-radius: 0.5rem;
+    --primary-color: #0891b2;
+}
+
+/* General Reset */
+body {
+    background-color: var(--dark-bg);
+    font-family: "Inter", serif;
+    font-style: normal;
+    margin: 0;
+    padding: 1rem;
+}
+
+/* Utility Classes */
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 10px 15px;
+}
+
+.avatar {
+    background-image: url("https://styles.redditmedia.com/t5_6i3kxb/styles/profileIcon_a88ml0uehgrc1.png?width=256&height=256&frame=1&auto=webp&crop=256:256,smart&s=1c2cb3f29a4d91411c5aa642847e75cee5168408");
+    background-size: cover;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    min-width: 2.5rem;
+}
+
+.avatar img {
+    background-image: url("https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png");
+    background-size: cover;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    min-width: 2.5rem;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--lighter-bg);
+    border-radius: var(--border-radius);
+    border: 1px solid #1b1b1b;
+}
+
+.header-logo {
+    color: white;
+    font-size: large;
+}
+
+/* Chirping Section */
+.chirping-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.chirping-input {
+    background-color: transparent;
+    border: 1px solid #27272a;
+    border-radius: var(--border-radius);
+    color: white;
+    resize: none;
+    padding: 10px 15px;
+    font-family: inherit;
+    font-size: small;
+    flex-grow: 1;
+    max-width: 90%;
+    height: 50px;
+}
+
+.chirping-button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.chirping-button {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 10px 15px;
+    color: white;
+    font-size: small;
+    font-weight: bold;
+}
+
+/* Feed Section */
+.feed {
+    margin-top: 2rem;
+}
+
+.feed-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
+.feed-content {
+    background-color: var(--lighter-bg);
+    color: white;
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+}
+
+.feed-content-name {
+    font-size: small;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.feed-content-text {
+    font-size: small;
+    color: #a1a1aa;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+.feed-actions {
+    display: flex;
+    gap: 1rem;
+    color: #a1a1aa;
+}
