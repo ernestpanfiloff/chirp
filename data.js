@@ -7,7 +7,18 @@ export let chirpsData = [
         likes: 27,
         rechirps: 10,
         chirpText: `Buy Bitcoin, ETH Make 💰💰💰 low low prices. Guaranteed return on investment. HMU DMs open!!`,
-        replies: [],
+        replies: [
+            {
+                handle: `@crazyFrog`,
+                profilePic: `https://i1.sndcdn.com/artworks-000020497879-dyrqpz-t1080x1080.jpg`,
+                chirpText: `you're a SCAMMER! reported`
+            },
+            {
+                handle: `@crazyFrog`,
+                profilePic: `https://i1.sndcdn.com/artworks-000020497879-dyrqpz-t1080x1080.jpg`,
+                chirpText: `nvm, just bought some bitcoin :)`
+            },
+        ],
         isLiked: false,
         isRechirped: false,
         uuid: '4b161eee-c0f5-4545-9c4b-8562944223ee',

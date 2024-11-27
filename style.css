@@ -6,6 +6,22 @@
     --lighter-bg: #111111;
     --border-radius: 0.5rem;
     --primary-color: #0891b2;
+    --green-color: #159846;
+    --red-color: #dc2626;
+}
+
+.primary-color {
+    color: var(--primary-color);
+}
+.green-color {
+    color: var(--green-color);
+}
+.red-color {
+    color: var(--red-color);
+}
+
+.hidden {
+    display: none;
 }
 
 body {
@@ -137,6 +153,31 @@ body {
     cursor: pointer;
 }
 
-.primary-color {
-    color: var(--primary-color);
+
+/* Replies */
+.feed-item-reply {
+    display: flex;
+    gap: 0.25rem;
+    margin: 1rem 0 0 0.5rem;
+    align-items: center;
+}
+
+.feed-reply-content {
+    background-color: var(--lighter-bg);
+    color: white;
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    width: 100%;
+}
+
+.feed-reply-content-name {
+    font-size: small;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.feed-reply-content-text {
+    font-size: small;
+    color: #a1a1aa;
+    line-height: 1.4;
 }

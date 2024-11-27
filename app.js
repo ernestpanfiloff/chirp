@@ -44,22 +44,40 @@ function handleRechirp(chirpId) {
 }
 
 function handleComment(chirpId) {
-    console.log("Comment for: " + chirpId)
+    document.getElementById(`replies-${chirpId}`).classList.toggle("hidden")
 }
 
 function getFeedHtml() {
     let feedHtml = ``
-    
+
     chirpsData.forEach(function (chirp) {
         let liked = ""
         let rechirped = ""
 
         if (chirp.isLiked) {
-            liked = "primary-color"
+            liked = "red-color"
         }
-        
+
         if (chirp.isRechirped) {
-            rechirped = "primary-color"
+            rechirped = "green-color"
+        }
+
+        let repliesHtml = ""
+
+        if (chirp.replies.length > 0) {
+            for (let reply of chirp.replies) {
+                let index = 0
+                console.log(reply)
+                repliesHtml += `<div class="feed-item-reply" id="replies-${chirp.uuid}">
+                    <div class="avatar"> <img src="${reply.profilePic}" alt=""></div>
+                        <div class="feed-reply-content">
+                            <p class="feed-reply-content-name">${reply.handle}</p>
+                            <p class="feed-reply-content-text">${reply.chirpText}</p>
+                
+                        </div>
+                </div>`
+            }
+
         }
 
         feedHtml += `<div class="feed-item" id="${chirp.uuid}">
@@ -72,7 +90,13 @@ function getFeedHtml() {
                         <i class="feed-actions-item fa-solid fa-retweet ${rechirped}" data-rechirp="${chirp.uuid}"> ${chirp.rechirps}</i>
                         <i class="feed-actions-item fa-solid fa-comment" data-comment="${chirp.uuid}"> ${chirp.replies.length}</i>
                     </div>
+                    
+                <div id="replies-${chirp.uuid}" class="hidden">
+                    ${repliesHtml}
                 </div>
+                    
+                </div>
+
             </div>`
     })
 
