@@ -88,7 +88,7 @@ function getFeedHtml() {
                     <div class="feed-actions">
                         <i class="feed-actions-item like-action fa-solid fa-heart ${liked}" data-like="${chirp.uuid}"> ${chirp.likes}</i>
                         <i class="feed-actions-item fa-solid fa-retweet ${rechirped}" data-rechirp="${chirp.uuid}"> ${chirp.rechirps}</i>
-                        <i class="feed-actions-item fa-solid fa-comment" data-comment="${chirp.uuid}"> ${chirp.replies.length}</i>
+                        <i class="feed-actions-item comment-action-${chirp.uuid} fa-solid fa-comment" data-comment="${chirp.uuid}"> ${chirp.replies.length}</i>
                     </div>
                     
                 <div id="replies-${chirp.uuid}" class="hidden">
