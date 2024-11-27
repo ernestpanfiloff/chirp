@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-/* Variables */
+
 :root {
     --dark-bg: #09090b;
     --lighter-bg: #111111;
@@ -8,7 +8,6 @@
     --primary-color: #0891b2;
 }
 
-/* General Reset */
 body {
     background-color: var(--dark-bg);
     font-family: "Inter", serif;
@@ -17,7 +16,6 @@ body {
     padding: 1rem;
 }
 
-/* Utility Classes */
 .container {
     max-width: 500px;
     margin: 0 auto;
@@ -92,6 +90,7 @@ body {
     color: white;
     font-size: small;
     font-weight: bold;
+    cursor: pointer;
 }
 
 /* Feed Section */
@@ -111,6 +110,7 @@ body {
     color: white;
     padding: 10px 15px;
     border-radius: var(--border-radius);
+    width: 100%;
 }
 
 .feed-content-name {
@@ -130,4 +130,9 @@ body {
     display: flex;
     gap: 1rem;
     color: #a1a1aa;
+    font-size: 0.75rem;
+}
+
+.feed-actions-item {
+    cursor: pointer;
 }
