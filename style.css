@@ -136,3 +136,7 @@ body {
 .feed-actions-item {
     cursor: pointer;
 }
+
+.primary-color {
+    color: var(--primary-color);
+}
