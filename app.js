@@ -1,12 +1,6 @@
 import { chirpsData } from "./data.js";
-import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
-console.log(uuidv4());
-
 
 let feed = document.querySelector(".feed")
-const chirpingButton = document.querySelector(".chirping-button")
-const chirpingInput = document.querySelector(".chirping-input")
-
 
 document.addEventListener("click", function (e) {
     if (e.target.dataset.like) {
@@ -15,7 +9,7 @@ document.addEventListener("click", function (e) {
         handleRechirp(e.target.dataset.rechirp)
     } else if (e.target.dataset.comment) {
         handleComment(e.target.dataset.comment)
-    } else if (chirpingButton) {
+    } else if (e.target.className === "chirping-button") {
         handleChirping()
     }
 })
@@ -52,9 +46,29 @@ function handleComment(chirpId) {
     document.getElementById(`replies-${chirpId}`).classList.toggle("hidden")
 }
 
-function handleChirping() {
-    console.log(chirpingInput.value)
-    chirpingInput.value = ""
+async function handleChirping() {
+    const chirpingInput = document.querySelector(".chirping-input")
+    try {
+        const uuid = await fetchUUID(); // Wait for the UUID to be fetched
+        if (chirpingInput.value) {
+            chirpsData.unshift({
+                handle: `@chillDude`,
+                profilePic: `https://styles.redditmedia.com/t5_6i3kxb/styles/profileIcon_a88ml0uehgrc1.png?width=256&height=256&frame=1&auto=webp&crop=256:256,smart&s=1c2cb3f29a4d91411c5aa642847e75cee5168408`,
+                likes: 0,
+                rechirps: 0,
+                chirpText: chirpingInput.value,
+                replies: [],
+                isLiked: false,
+                isRechirped: false,
+                uuid: uuid, // Use the resolved UUID here
+            });
+            console.log(chirpsData);
+            chirpingInput.value = "";
+            renderFeed();
+        }
+    } catch (error) {
+        console.error("Failed to handle chirping:", error);
+    }
 }
 
 function getFeedHtml() {
@@ -77,7 +91,6 @@ function getFeedHtml() {
         if (chirp.replies.length > 0) {
             for (let reply of chirp.replies) {
                 let index = 0
-                console.log(reply)
                 repliesHtml += `<div class="feed-item-reply" id="replies-${chirp.uuid}">
                     <div class="avatar"> <img src="${reply.profilePic}" alt=""></div>
                         <div class="feed-reply-content">
@@ -119,3 +132,23 @@ function renderFeed() {
     document.querySelector(".feed").innerHTML = getFeedHtml()
 }
 renderFeed()
+
+
+
+
+// Fetch a UUID from the API and log it to the console
+async function fetchUUID() {
+    try {
+        const response = await fetch('https://www.uuidgenerator.net/api/version7');
+
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status}`);
+        }
+
+        // The response is plain text
+        const uuid = await response.text();
+        return uuid; // Return the UUID
+    } catch (error) {
+        console.error('Failed to fetch UUID:', error);
+    }
+}
