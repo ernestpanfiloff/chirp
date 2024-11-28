@@ -156,8 +156,8 @@ body {
 /* Replies */
 .feed-item-reply {
     display: flex;
-    margin-top: 1rem;
     align-items: center;
+    margin-top: 1rem;
 }
 
 .feed-reply-content {

@@ -127,6 +127,7 @@ function getFeedHtml() {
 }
 
 
+
 // Clear feed and render it
 function renderFeed() {
     document.querySelector(".feed").innerHTML = getFeedHtml()
