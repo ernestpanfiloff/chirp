@@ -1,4 +1,7 @@
 import { chirpsData } from "./data.js";
+import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
+console.log(uuidv4());
+
 
 let feed = document.querySelector(".feed")
 const chirpingButton = document.querySelector(".chirping-button")
@@ -12,6 +15,8 @@ document.addEventListener("click", function (e) {
         handleRechirp(e.target.dataset.rechirp)
     } else if (e.target.dataset.comment) {
         handleComment(e.target.dataset.comment)
+    } else if (chirpingButton) {
+        handleChirping()
     }
 })
 
@@ -45,6 +50,11 @@ function handleRechirp(chirpId) {
 
 function handleComment(chirpId) {
     document.getElementById(`replies-${chirpId}`).classList.toggle("hidden")
+}
+
+function handleChirping() {
+    console.log(chirpingInput.value)
+    chirpingInput.value = ""
 }
 
 function getFeedHtml() {
